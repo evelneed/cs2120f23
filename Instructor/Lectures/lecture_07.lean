@@ -33,6 +33,9 @@ namespace cs2120
 inductive Box (α : Type) : Type
 | put (a : α)
 
+#check (@Box.put Nat)
+#check Box.put 5
+
 /-! 
 Here we've renamed the constructor from pair to 
 mk to be consistent with Lean's built-in definition

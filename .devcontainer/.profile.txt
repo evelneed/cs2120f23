@@ -5,3 +5,4 @@ if [ "$BASH" ]; then
 fi
 
 tty -s && mesg n
+
