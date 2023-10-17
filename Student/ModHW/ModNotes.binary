@@ -1,0 +1,17 @@
+60 --> 01100000 --> r0 equals val at 01 (num1 but negative later)
+NUMBER --> 0x01 (they put here)
+64 --> 01100100 --> r1 equals val at 03 (num2)
+NUMBER --> 0x03 (they put here)
+51 --> 01010001--> num1 = -num1
+68 --> 01101000--> r2 = 10 (halt)
+10 --> where 80 is
+76 --> 01110110 --> set pc to r2/80/halt if r1 is less than/equal to 0
+5B --> 01011011 -> r2 equals pc (start of loop)
+0C --> 00001100 --> r3 equals what is at r0 before it changes
+11 --> 00010001 --s negative num1 plus num2
+72 --> 01110010 --> if num1 is less than or equal to 0 go back to r2
+5D --> 01011101 --> r3 = -r3
+68 --> 01101000 --> setting r2 to memory address 0xD0
+D0 --> D0 
+4E--> 01001110 --> writing r3 to D0/r2
+80 --> halt

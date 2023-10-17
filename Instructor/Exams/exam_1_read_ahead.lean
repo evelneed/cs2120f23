@@ -2,8 +2,6 @@
 # UVa CS2120-002 F23 Midterm Exam
 
 
-
-
 ## Propositional Logic: Syntax, Sematics, Satisfiability
 
 This section of the exam simply includes our formal 

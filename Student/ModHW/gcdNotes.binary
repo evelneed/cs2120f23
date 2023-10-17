@@ -1,0 +1,75 @@
+//r1 hasnt been used yet (will be for loop)
+68 01101000 Load 0x01 into r2
+66
+6C 01101100 Load 0x03 into r3
+12 16 00010010
+//check if either is 0
+64 01100100 write halt location to r1
+HALT (12)
+79 01111001 -- check if r2 = 0, if so pc = halt address
+7D 01111101 -- check if r3 = 0, if so pc = halt adress 
+//Calculate GCD:
+57 01010111 set r1 to pc (start of loop)
+    82 10000010 jump to mod(r2, r3) address 
+    13 MOD address (result is stored in r0)
+    0B 00000111 r2 = r3
+    0C 00001100 r3 = r0 (result of mod) 
+    52 01010010 r0 = !r0
+    71 01110001 if r0 <= 0, set pc = r1, otherwise increment    
+64 01100100 write 0xE0 to r1
+E0
+49 01001001 write GCD (in r2) into 0xE0 (r1)
+FF halt!
+
+
+
+
+
+
+
+
+
+68 01 6C 03 57 82 !! 83 07 03 52 71 64 E0 4D FF 60 D0 44 59 64 10 7D 57 02 1B 79 51 67 D0 FF
+
+68 01 6C 03 57 82 10 83 07 03 52 71 64 E0 4D FF 60 D0 44 59 64 10 7D 57 02 1B 79 51 67 D0 FF
+00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E
+
+
+//new mod binary
+60 D0 44 59 64 10 7D 57 02 1B 79 51 67 D0 FF
+
+
+84 --> 10000100 --> push r1 onto da stack
+59 --> 01011001 --> r2 = -r2
+7D --> 01111101 --> set pc to r1/FF/halt if r3 is less than/equal to 0
+57 --> 01010111 --> r1 equals pc (start of loop)
+02 --> 00000010 --> r0 equals what is at r2 before it changes
+1B --> 00011011 --> r2 += r3 negative num1 (r2) plus num2 (r3)
+79 --> 01111001 --> if num1 (r2) is less than or equal to 0 go back to r1
+51 --> 01010001 --> r0 = -r0 (answer!)
+85 --> 10000101 --> pop top of stack to r1
+83 10000011 (function return) (now at end of mod)
+
+
+
+
+60 --> 01100000 --> making r0 spot for r1
+D0 --> current spot for r1
+44 --> 01000100 --> write r1 to spot at r0 (d0) to store
+
+67 --> 01100111 --> r1 is whats at next memory (rewriting r1)
+D0 --> where r1 was stored
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    push r3 onto stack 10001100 8C
+     r2 = pop top of stack (r3) 10001001

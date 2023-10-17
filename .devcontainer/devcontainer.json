@@ -32,7 +32,8 @@
 				"redhat.vscode-yaml",
 				"donjayamanne.python-extension-pack",
 				"ms-vscode.makefile-tools",
-				"AmazonWebServices.aws-toolkit-vscode"
+				"AmazonWebServices.aws-toolkit-vscode",
+				"jroesch.lean"
 			]
         }
     },

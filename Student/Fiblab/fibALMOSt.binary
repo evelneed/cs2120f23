@@ -1,0 +1,22 @@
+60 --> 01100000 --> set r0 to 1 (current)
+01 (setting to 1)
+64 --> 01100100  --> set r1 to 1 (prev)
+01 (setting to 1)
+68 --> 01101000  --> set r2 to -64 C0 (counter)
+C0 -> -66 in binary
+5F --> 01011111 --> (r3 = PC, come back here for loop)
+42 --> 01000010 --> write current to spot at r2 (memory holder)
+69 --> 01101001 --> r2 += 1 (increment counter)
+01 --> 00000001 (adding one to r2)
+46 --> 01000110 --> write previous to spot at r2 (memory holder)
+69 --> 01101001 --> r2 += 1 (increment counter)
+01 --> 00000001 (adding one to r2)
+11 --> 00010001 --> r0 += r1
+14 --> 00010100 --> r1 +=r0
+7B --> while loop stuff to check to see if r2 is 0, if it is less
+68 --> set r2 to 00
+00
+60 --> 01100000 --> set r0 to 60 (first command)
+60
+42 --> write r0 to r2
+FF --> 11111111 (all ones to halt program)
